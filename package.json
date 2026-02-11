@@ -24,6 +24,10 @@
       "development": "./src/schemas/index.ts",
       "default": "./dist/schemas/index.js"
     },
+    "#types": {
+      "development": "./src/types/index.ts",
+      "default": "./dist/types/index.js"
+    },
     "#db": {
       "development": "./src/db.ts",
       "default": "./dist/db.js"
