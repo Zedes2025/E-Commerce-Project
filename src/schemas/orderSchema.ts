@@ -11,7 +11,7 @@ const orderItemSchema = z.object({
 export const orderCreateSchema = z.object({
   userId: z.string().refine((val) => isValidObjectId(val), "Invalid user ID"),
   products: z.array(orderItemSchema).min(1),
-  //  total: z.number().positive().int(),
+  total: z.number().positive().int(),
 });
 export const orderUpdateSchema = z.object({
   products: z.array(orderItemSchema).min(1),

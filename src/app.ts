@@ -7,16 +7,7 @@ import {
   categoryRoutes,
   orderRoutes,
 } from "#routes";
-import {
-  userCreateSchema,
-  userUpdateSchema,
-  categoryCreateSchema,
-  categoryUpdateSchema,
-  productCreateSchema,
-  productUpdateSchema,
-  orderCreateSchema,
-  orderUpdateSchema,
-} from "#schemas";
+
 import { errorHandler } from "#middlewares";
 const app = express();
 const port = process.env.PORT || 1781;

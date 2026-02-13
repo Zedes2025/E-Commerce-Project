@@ -42,7 +42,7 @@ export const createProduct: RequestHandler = async (req, res) => {
   }
 
   // Check if category exists: it is required
-  const categoryExists = await Category.findById(categoryId);
+  const categoryExists = await Category.exists({ _id: categoryId });
   if (!categoryExists) {
     throw new Error("Category required", { cause: { status: 404 } });
   }
@@ -66,6 +66,14 @@ export const updateProduct: RequestHandler = async (req, res) => {
   //console.log("body,", body);
   if (!isValidObjectId(id))
     throw new Error("Invalid id", { cause: { status: 400 } });
+
+  const categoryExists = await Category.exists({ _id: body.categoryId });
+
+  if (!categoryExists)
+    throw new Error("Category does not exist", {
+      cause: { status: 400 },
+    });
+
   const product = await Product.findByIdAndUpdate(id, body, {
     new: true,
   }).lean();
