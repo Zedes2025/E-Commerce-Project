@@ -6,16 +6,20 @@ import {
   getUsers,
   updateUser,
 } from "#controllers";
+import { userCreateSchema, userUpdateSchema } from "#schemas";
+import { validateBody } from "#middlewares";
+import { z } from "zod/v4";
+
 const userRoutes = Router();
 
 userRoutes
   .route("/")
   .get(getUsers)
-  .post(/*validateBodyZod(userSchema),*/ createUser);
+  .post(validateBody(userCreateSchema), createUser);
 userRoutes
   .route("/:id")
   .get(getUserById)
-  .put(/*validateBodyZod(userSchema),*/ updateUser)
+  .put(validateBody(userUpdateSchema), updateUser)
   .delete(deleteUser);
 
 export default userRoutes;

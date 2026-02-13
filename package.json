@@ -49,11 +49,11 @@
     "cors": "^2.8.5",
     "express": "^5.2.1",
     "mongoose": "^8.23.0",
-    "zod": "^3.25.76"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.3",
+    "@types/express": "^5.0.6",
     "@types/node": "^24.0.3",
     "typescript": "^5.8.3"
   }

@@ -20,12 +20,12 @@ const orderSchema = new Schema(
       ref: "User",
       required: true,
     },
-    products: [orderItemSchema],
-    total: {
-      type: Number,
-      required: true,
-      min: 0,
-    },
+    // products: [orderItemSchema],
+    // total: {
+    //   type: Number,
+    //   required: true,
+    //   min: 0,
+    // },
   },
   { timestamps: true },
 );

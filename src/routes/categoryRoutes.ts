@@ -6,16 +6,18 @@ import {
   getCategories,
   updateCategory,
 } from "#controllers";
+import { categoryCreateSchema, categoryUpdateSchema } from "#schemas";
+import { validateBody } from "#middlewares";
 const categoryRoutes = Router();
 
 categoryRoutes
   .route("/")
   .get(getCategories)
-  .post(/*validateBodyZod(categorySchema),*/ createCategory);
+  .post(validateBody(categoryCreateSchema), createCategory);
 categoryRoutes
   .route("/:categoryId")
   .get(getCategoryById)
-  .put(/*validateBodyZod(categorySchema),*/ updateCategory)
+  .put(validateBody(categoryUpdateSchema), updateCategory)
   .delete(deleteCategory);
 
 export default categoryRoutes;

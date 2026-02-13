@@ -6,16 +6,19 @@ import {
   getOrders,
   updateOrder,
 } from "#controllers";
+import { orderCreateSchema, orderUpdateSchema } from "#schemas";
+import { validateBody } from "#middlewares";
+
 const orderRoutes = Router();
 
 orderRoutes
   .route("/")
   .get(getOrders)
-  .post(/*validateBodyZod(orderSchema),*/ createOrder);
+  .post(validateBody(orderCreateSchema), createOrder);
 orderRoutes
   .route("/:id")
   .get(getOrderById)
-  .put(/*validateBodyZod(orderSchema),*/ updateOrder)
+  .put(validateBody(orderUpdateSchema), updateOrder)
   .delete(deleteOrder);
 
 export default orderRoutes;
